@@ -3,7 +3,6 @@ var cheerio = require('cheerio'),
 	  iconv = require('iconv-lite'),
 	     fs = require('fs'),
 	hostname = 'http://www.dytt8.net',
-	//hostname = 'http://www.zhibo8.cc',
 		url =  '/index.htm',
   searchUrl = "http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=",
 	   html = '';
@@ -76,35 +75,3 @@ function encodeURIComponent_GBK(str){
   }
   return a.join('');
 }
-//queryFilm('生化危机');
-
-/**
- * 下面是爬zhibo8的
- */
-
-/*
-request({
-	url:hostname,
-	encoding:null
-},function(err,sres,body){
-	var html = iconv.decode(body,"utf-8");
-	var $ = cheerio.load(html, {decodeEntities:false});
-	var EpSoccer = "";
-	$('.content b:contains("欧冠")').each(function(){
-		EpSoccer += '||' + $(this).html();	
-	});
-	console.log(EpSoccer);
-});
-*/
-
-/*request('GET',hostname+url).done(function(res){
-	var $ = cheerio.load(res.getBody('utf-8'));
-	var next_url = hostname + $('.co_content2 a').eq(1).attr('href');
-	console.log(next_url);
-	request('GET',next_url).done(function(next_res){
-		console.log(next_res);
-		var next_$ = cheerio.load(next_res.getBody('utf-8'));
-		console.log(next_$('.tpc_content td a').attr());
-	});
-});
-*/
